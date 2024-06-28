@@ -31,6 +31,7 @@ bun run ex2     # ESM
 
 # 以下開発
 ## ./src の下をいろいろ編集する。
+bun test
 bun run lint
 bun run format
 bun run build
