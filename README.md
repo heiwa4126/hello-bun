@@ -36,7 +36,7 @@ bun run format
 bun run build
 #
 git add --all && git commit -am '...'
-npm verson patch
+npm verson patch  # bun には version コマンドがない
 git push && git push --tags
 npm run build && npm publish --access=public # or `npm run pack`
 ```
