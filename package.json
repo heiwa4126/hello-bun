@@ -42,8 +42,9 @@
 		"linklocal": "bin/linklocal.sh",
 		"ex1": "bun ./examples/ex1.cjs",
 		"ex2": "bun ./examples/ex2.mjs",
-		"lint": "biome lint ./src build.ts",
-		"format": "biome format --write ./src package.json build.ts",
+		"format": "biome format --write .",
+		"lint": "biome lint .",
+		"check": "biome check --write .",
 		"build": "rm -rf ./dist && mkdir -p ./dist && bun ./build.ts",
 		"pack": "bun run format && bun run build && npm pack && mv *.tgz ../"
 	}

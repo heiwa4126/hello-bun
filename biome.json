@@ -3,10 +3,21 @@
 	"organizeImports": {
 		"enabled": true
 	},
+	"json": {
+		"parser": {
+			"allowComments": true,
+			"allowTrailingCommas": true
+		}
+	},
 	"linter": {
 		"enabled": true,
 		"rules": {
 			"recommended": true
-		}
+		},
+		"ignore": ["dist/**/*", "node_modules/**/*"]
+	},
+	"formatter": {
+		"enabled": true,
+		"ignore": ["dist/**/*", "node_modules/**/*"]
 	}
 }
