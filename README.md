@@ -40,6 +40,10 @@ git add --all && git commit -am '...'
 npm verson patch  # bun には version コマンドがない
 git push && git push --tags
 npm run build && npm publish --access=public # or `npm run pack`
+
+# シングルバイナリ. buildの下にLinux用とWindow用ができる。
+bun run binary
+# Linux上で作るとWindows版が動かない
 ```
 
 ## CommonJS
