@@ -33,7 +33,7 @@
 		"!**/*.js.map"
 	],
 	"devDependencies": {
-		"@biomejs/biome": "^1.8.3",
+		"@biomejs/biome": "^1.9.1",
 		"@types/bun": "latest",
 		"bun-plugin-dts": "^0.2.3"
 	},
