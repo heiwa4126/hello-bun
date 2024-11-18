@@ -1,28 +1,31 @@
 {
 	"compilerOptions": {
-		// Enable latest features
-		"lib": ["ESNext", "DOM"],
-		"target": "ESNext",
-		"module": "ESNext",
-		"moduleDetection": "force",
-		"jsx": "react-jsx",
-		"allowJs": true,
+		// 最新の機能を有効にする
+		"lib": ["ESNext", "DOM"], // 使用するライブラリのリスト。ESNextとDOMの機能を含む。
+		"target": "ESNext", // コンパイル後のJavaScriptのターゲットバージョンを指定。ESNextは最新のECMAScriptを意味する。
+		"module": "ESNext", // 使用するモジュールシステムを指定。ESNextは最新のモジュールシステムを意味する。
+		"moduleDetection": "force", // モジュールとして扱うファイルを強制的に検出する。
 
-		// Bundler mode
-		"moduleResolution": "bundler",
-		// "moduleResolution": "node",
-		"allowImportingTsExtensions": true,
-		"verbatimModuleSyntax": true,
-		"noEmit": true,
+		// React JSXの設定
+		"jsx": "react-jsx", // JSXの変換方法を指定。React 17以降の新しい変換方法を使用。
 
-		// Best practices
-		"strict": true,
-		"skipLibCheck": true,
-		"noFallthroughCasesInSwitch": true,
+		// JavaScriptファイルの許可
+		"allowJs": true, // JavaScriptファイルのインポートを許可する。
 
-		// Some stricter flags (disabled by default)
-		"noUnusedLocals": false,
-		"noUnusedParameters": false,
-		"noPropertyAccessFromIndexSignature": false
+		// バンドラーモード
+		"moduleResolution": "bundler", // モジュール解決方法をバンドラーに適した方法に設定。
+		"allowImportingTsExtensions": true, // TypeScriptファイルの拡張子を含むインポートを許可する。
+		"verbatimModuleSyntax": true, // インポート/エクスポートの構文をそのまま保持する。
+		"noEmit": true, // コンパイル後のファイルを出力しない。
+
+		// ベストプラクティス
+		"strict": true, // 厳格な型チェックオプションを有効にする。
+		"skipLibCheck": true, // ライブラリファイルの型チェックをスキップする。
+		"noFallthroughCasesInSwitch": true, // switch文でのフォールスルーを禁止する。
+
+		// より厳格なフラグ(デフォルトでは無効)
+		"noUnusedLocals": false, // 未使用のローカル変数を許可する。
+		"noUnusedParameters": false, // 未使用のパラメータを許可する。
+		"noPropertyAccessFromIndexSignature": false // インデックスシグネチャからのプロパティアクセスを許可する。
 	}
 }
