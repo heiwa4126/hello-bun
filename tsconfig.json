@@ -26,6 +26,11 @@
 		// より厳格なフラグ(デフォルトでは無効)
 		"noUnusedLocals": false, // 未使用のローカル変数を許可する。
 		"noUnusedParameters": false, // 未使用のパラメータを許可する。
-		"noPropertyAccessFromIndexSignature": false // インデックスシグネチャからのプロパティアクセスを許可する。
+		"noPropertyAccessFromIndexSignature": false, // インデックスシグネチャからのプロパティアクセスを許可する。
+
+		// その他の設定
+		"outDir": "./dist", // コンパイル後のファイルの出力先を指定。
+		// "rootDir": "./src", // ソースファイルのルートディレクトリを指定。
+		"types": ["node"]
 	}
 }
