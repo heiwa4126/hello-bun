@@ -236,3 +236,5 @@ testdata/**/*.html
 testdata/**/*.htm
 
 build/
+
+*.tgz

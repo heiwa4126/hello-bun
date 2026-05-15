@@ -1,33 +1,26 @@
 {
 	"name": "@heiwa4126/hello-bun",
 	"version": "1.0.0",
-	"main": "./dist/esm/index.js",
-	"module": "./dist/esm/index.js",
-	"types": "./dist/esm/index.d.ts",
-	"type": "module",
-	"bin": {
-		"hello-bun": "./dist/esm/cli.js"
-	},
-	"engines": {
-		"node": ">=16"
-	},
+	"description": "TypeScript package tutorial by bun",
 	"keywords": [
-		"demo",
-		"typescript",
 		"bun",
-		"helloworld"
+		"demo",
+		"helloworld",
+		"typescript"
 	],
+	"homepage": "https://github.com/heiwa4126/hello-bun#readme",
+	"bugs": {
+		"url": "https://github.com/heiwa4126/hello-bun/issues"
+	},
+	"license": "MIT",
 	"author": "heiwa4126",
 	"repository": {
 		"type": "git",
 		"url": "git+https://github.com/heiwa4126/hello-bun.git"
 	},
-	"bugs": {
-		"url": "https://github.com/heiwa4126/hello-bun/issues"
+	"bin": {
+		"hello-bun": "./dist/esm/cli.js"
 	},
-	"homepage": "https://github.com/heiwa4126/hello-bun#readme",
-	"license": "MIT",
-	"description": "TypeScript package tutorial by bun",
 	"files": [
 		"package.json",
 		"README.md",
@@ -37,23 +30,32 @@
 		"!**/*.test.*",
 		"!**/*.js.map"
 	],
-	"devDependencies": {
-		"@biomejs/biome": "^2.3.8",
-		"@types/bun": "^1.3.4",
-		"@types/node": "^24.10.1",
-		"bun-plugin-dts": "^0.3.0",
-		"dts-bundle-generator": "^9.5.1"
-	},
+	"type": "module",
+	"main": "./dist/esm/index.js",
+	"module": "./dist/esm/index.js",
+	"types": "./dist/esm/index.d.ts",
 	"scripts": {
+		"preinstall": "bun audit",
 		"ex0": "bun ./src/cli.ts",
-		"linklocal": "scripts/linklocal.sh",
 		"ex1": "bun ./examples/ex1.cjs",
 		"ex2": "bun ./examples/ex2.mjs",
-		"format": "biome format --write .",
-		"lint": "biome lint .",
-		"check": "biome check --write .",
-		"build": "rm -rf ./dist && mkdir -p ./dist && bun ./build.ts",
-		"pack": "bun run format && bun run build && npm pack && mv *.tgz ../",
-		"binary": "bun build --compile --minify --sourcemap --target bun-linux-x64 ./src/cli.ts --outfile build/hello && bun build --compile --minify --sourcemap --target bun-windows-x64 ./src/cli.ts --outfile build/hello.exe"
+		"build": "rm -rf ./dist && bun ./build.ts",
+		"pack": "bun run build && bun pm pack",
+		"prepack": "bun run check && clean-publish-scripts -c",
+		"postpack": "clean-publish-scripts -r",
+		"binary": "rm -rf ./build && bun build --compile --minify --sourcemap --target bun-linux-x64 ./src/cli.ts --outfile build/hello-bun && bun build --compile --minify --sourcemap --target bun-windows-x64 ./src/cli.ts --outfile build/hello-bun.exe",
+		"format": "oxfmt",
+		"lint": "oxlint",
+		"check": "oxfmt && oxlint --fix"
+	},
+	"devDependencies": {
+		"@heiwa4126/clean-publish-scripts": "^0.0.6",
+		"@heiwa4126/hello-bun": "link:.",
+		"@types/bun": "^1.3.14",
+		"@types/node": "^24.12.4",
+		"bun-plugin-dts": "^0.3.0"
+	},
+	"engines": {
+		"node": ">=16"
 	}
 }
