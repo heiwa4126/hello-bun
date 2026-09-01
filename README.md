@@ -59,3 +59,13 @@ bun run binary
 まあ Docker イメージよりは小さいかも。
 
 UPX はできない
+
+## TypeScript v7 と DTS
+
+v7 で [bun-plugin-dts - npm](https://www.npmjs.com/package/bun-plugin-dts) が動かなくなりました。
+v5 にもどすのはイヤだったので、
+
+- 明示的に typescript を依存に含め
+- dts は `tsc --emitDeclarationOnly` で作る
+
+ように `bun run build` を改造しました。

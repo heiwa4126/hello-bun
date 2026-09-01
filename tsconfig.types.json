@@ -1,0 +1,10 @@
+{
+	"extends": "./tsconfig.json",
+	"compilerOptions": {
+		"noEmit": false,
+		"declaration": true,
+		"rootDir": "./src",
+		"outDir": "./dist/esm"
+	},
+	"files": ["./src/index.ts", "./src/cli.ts"]
+}

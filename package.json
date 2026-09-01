@@ -39,7 +39,10 @@
 		"ex0": "bun ./src/cli.ts",
 		"ex1": "bun ./examples/ex1.cjs",
 		"ex2": "bun ./examples/ex2.mjs",
-		"build": "rm -rf ./dist && bun ./build.ts",
+		"clean": "rm -rf ./dist",
+		"build:js": "bun ./build.ts",
+		"build:types": "tsc --project ./tsconfig.types.json --emitDeclarationOnly",
+		"build": "bun run --sequential clean build:js build:types",
 		"pack": "bun run build && bun pm pack",
 		"prepack": "bun run check && clean-publish-scripts -c",
 		"postpack": "clean-publish-scripts -r",
@@ -53,7 +56,7 @@
 		"@heiwa4126/hello-bun": "link:.",
 		"@types/bun": "^1.4.0",
 		"@types/node": "^26.4.0",
-		"bun-plugin-dts": "^0.4.0"
+		"typescript": "^7.0.2"
 	},
 	"engines": {
 		"node": ">=16"

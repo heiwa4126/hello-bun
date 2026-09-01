@@ -1,1 +1,1 @@
-export { hello } from "./hello.ts";
+export { hello } from "./hello.js";

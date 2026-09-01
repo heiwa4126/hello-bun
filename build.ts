@@ -1,33 +1,28 @@
 import { build } from "bun";
-import dts from "bun-plugin-dts";
 
 async function buildProject() {
 	// ESM build
-	await build({
+	const result = await build({
 		entrypoints: ["./src/index.ts", "./src/cli.ts"],
 		outdir: "./dist/esm",
 		format: "esm",
 		target: "node",
 		minify: true,
 		splitting: true,
-		external: ["./node_modules"],
-		plugins: [dts()]
+		external: ["./node_modules"]
 	});
 
-	// // CJS build with TypeScript compiler
-	// exec("tsc --project tsconfig.cjs.json", (error, stdout, stderr) => {
-	//   if (error) {
-	//     console.error(`Error: ${error.message}`);
-	//     return;
-	//   }
-	//   if (stderr) {
-	//     console.error(`Stderr: ${stderr}`);
-	//     return;
-	//   }
-	//   console.log(`Stdout: ${stdout}`);
-	// });
+	if (!result.success) {
+		for (const log of result.logs) {
+			console.error(log);
+		}
+		throw new Error("JavaScript build failed");
+	}
 
-	console.log("Build completed successfully!");
+	console.log("JavaScript build completed successfully!");
 }
 
-buildProject().catch(console.error);
+buildProject().catch((error) => {
+	console.error(error);
+	process.exitCode = 1;
+});
