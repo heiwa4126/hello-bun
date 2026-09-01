@@ -11,7 +11,7 @@ async function buildProject() {
 		minify: true,
 		splitting: true,
 		external: ["./node_modules"],
-		plugins: [dts()],
+		plugins: [dts()]
 	});
 
 	// // CJS build with TypeScript compiler
