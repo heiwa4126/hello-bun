@@ -49,6 +49,7 @@
 		"binary": "rm -rf ./build && bun build --compile --minify --sourcemap --target bun-linux-x64 ./src/cli.ts --outfile build/hello-bun && bun build --compile --minify --sourcemap --target bun-windows-x64 ./src/cli.ts --outfile build/hello-bun.exe",
 		"format": "oxfmt",
 		"lint": "oxlint",
+		"lint-tsc": "tsc --noEmit",
 		"check": "oxfmt && oxlint --fix"
 	},
 	"devDependencies": {
