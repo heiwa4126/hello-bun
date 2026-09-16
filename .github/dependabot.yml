@@ -8,6 +8,10 @@ updates:
   - package-ecosystem: bun # See documentation for possible values
     directory: "/" # Location of package manifests
     schedule:
-      interval: "monthly"
+      interval: monthly
+    groups:
+      all-dependencies:
+        patterns:
+          - "*"
     cooldown:
       default-days: 7

@@ -5,12 +5,12 @@
 ## プロジェクト概要
 
 `@heiwa4126/hello-bun` — Bun + TypeScript で npm パッケージを書く練習兼テンプレート。
-ライブラリ (`hello()` を export) と CLI (`hello-bun`) の両方を提供する。
+ライブラリ (`hello()`を export) と CLI (`hello-bun`) の両方を提供する。
 
 - ランタイム/ツールチェーン: **Bun** (開発時 1.4.0)
 - 言語: TypeScript (`typescript` ^7.0.2)
-- 配布形式: **ESM のみ** (`"type": "module"`)、型定義は `tsc --emitDeclarationOnly`
-- ライセンス: MIT / repo: https://github.com/heiwa4126/hello-bun
+- 配布形式: **ESM のみ** (`"type": "module"`)、型定義は`tsc --emitDeclarationOnly`
+- ライセンス: MIT/repo: https://github.com/heiwa4126/hello-bun
 
 ## ディレクトリ構成
 
@@ -45,26 +45,26 @@ bun run binary       # 単一バイナリ (linux-x64 / windows-x64) を build/ �
 bun run pack         # build → bun pm pack
 ```
 
-変更を入れたら最低限 `bun test` と `bun run check` を通す。ビルドに影響する変更なら
-`bun run build` まで確認する。
+変更を入れたら最低限`bun test`と`bun run check`を通す。ビルドに影響する変更なら
+`bun run build`まで確認する。
 
 ## 規約・注意点
 
-- **インポートは `.js` 拡張子で書く** (`import { hello } from "./hello.js"`)。
+- **インポートは`.js`拡張子で書く** (`import { hello } from "./hello.js"`)。
   ESM 出力の解決のため。ただしテストファイル内は拡張子なし (`"./hello"`) になっている。
-- **インデントはタブ**。`oxfmt` のデフォルト設定に従う (設定ファイルは置いていない)。
-- `oxlint` / `oxfmt` は devDependencies に入っているので `bun i` だけで揃う。
-  VS Code の oxc 拡張 (`oxc.oxc-vscode`) も `node_modules` のバイナリを自動検出する。
+- **インデントはタブ**。`oxfmt`のデフォルト設定に従う (設定ファイルは置いていない)。
+- `oxlint`/`oxfmt`は devDependencies に入っているので`bun i`だけで揃う。
+  VS Code の oxc 拡張 (`oxc.oxc-vscode`) も`node_modules`のバイナリを自動検出する。
 - 新しい公開エントリポイントを追加する場合は、
-  `build.ts` の `entrypoints` と `tsconfig.types.json` の `files` の **両方** に足す必要がある。
-- 型定義は `bun-plugin-dts` ではなく `tsc --emitDeclarationOnly` で生成する
+  `build.ts`の`entrypoints`と`tsconfig.types.json`の`files`の **両方** に足す必要がある。
+- 型定義は`bun-plugin-dts`ではなく`tsc --emitDeclarationOnly`で生成する
   (TypeScript v7 で bun-plugin-dts が動かなくなったため)。
-- CommonJS 向けのトランスパイルは **未対応**。`examples/ex1.cjs` は ESM 成果物を
+- CommonJS 向けのトランスパイルは **未対応**。`examples/ex1.cjs`は ESM 成果物を
   Bun の互換性に頼って読んでいる。
-- エディタのフォーマッタは `.vscode/settings.json` で `oxc.oxc-vscode` に統一している
-  (CLI 側の `oxfmt` と同じ)。biome は使っていない。
+- エディタのフォーマッタは`.vscode/settings.json`で`oxc.oxc-vscode`に統一している
+  (CLI 側の`oxfmt`と同じ)。biome は使っていない。
 - 単一バイナリは Bun 本体を含むので ~100MB になる。UPX 圧縮は不可。
-- 改行は `.gitattributes` で LF 固定 (`*.cmd`/`*.bat` などは例外)。
+- 改行は`.gitattributes`で LF 固定 (`*.cmd`/`*.bat`などは例外)。
 
 ## リリース手順 (README より)
 
@@ -75,11 +75,11 @@ git push && git push --tags
 npm run build && npm publish --access=public
 ```
 
-`prepack` / `postpack` で `clean-publish-scripts` が package.json の scripts を
+`prepack`/`postpack`で`clean-publish-scripts`が package.json の scripts を
 一時的に除去/復元する。publish 周りを触るときはこれを壊さないこと。
 
 ## やらないこと
 
-- `dist/`, `build/`, `node_modules/` を手で編集・コミットしない。
+- `dist/`, `build/`, `node_modules/`を手で編集・コミットしない。
 - 依存の更新は Dependabot (`.github/dependabot.yml`) が PR を出すので、
   手動でバージョンを上げる必要は基本的にない。
